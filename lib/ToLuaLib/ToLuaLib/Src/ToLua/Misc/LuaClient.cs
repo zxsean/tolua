@@ -26,6 +26,9 @@ using System.Collections;
 using System.IO;
 using System;
 
+/// <summary>
+/// 基本封装
+/// </summary>
 public class LuaClient : MonoBehaviour
 {
     public static LuaClient Instance
@@ -41,6 +44,10 @@ public class LuaClient : MonoBehaviour
     protected bool openLuaSocket = false;
     protected bool beZbStart = false;
 
+    /// <summary>
+    /// 初始化Loader用来加载Lua神马的
+    /// </summary>
+    /// <returns></returns>
     protected virtual LuaFileUtils InitLoader()
     {
         if (LuaFileUtils.Instance != null)
@@ -51,6 +58,9 @@ public class LuaClient : MonoBehaviour
         return new LuaFileUtils();
     }
 
+    /// <summary>
+    /// 加载Lua
+    /// </summary>
     protected virtual void LoadLuaFiles()
     {
         OnLoadFinished();
@@ -119,7 +129,9 @@ public class LuaClient : MonoBehaviour
         luaState.EndPreLoad();                     
     }
 
-    //cjson 比较特殊，只new了一个table，没有注册库，这里注册一下
+    /// <summary>
+    /// cjson 比较特殊，只new了一个table，没有注册库，这里注册一下
+    /// </summary>
     protected void OpenCJson()
     {
         luaState.LuaGetField(LuaIndexes.LUA_REGISTRYINDEX, "_LOADED");
@@ -157,6 +169,9 @@ public class LuaClient : MonoBehaviour
         LuaCoroutine.Register(luaState, this);
     }
 
+    /// <summary>
+    /// 初始化
+    /// </summary>
     protected void Init()
     {        
         InitLoader();
@@ -169,10 +184,15 @@ public class LuaClient : MonoBehaviour
 
     protected void Awake()
     {
+        // 单例
         Instance = this;
         Init();
     }
 
+    /// <summary>
+    /// Lua文件加载完毕后调用
+    /// 初始化Looper
+    /// </summary>
     protected virtual void OnLoadFinished()
     {
         luaState.Start();                

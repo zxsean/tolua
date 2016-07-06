@@ -132,6 +132,10 @@ public static class CustomSettings
         _GT(typeof(RenderSettings)),                                                   
         _GT(typeof(BlendWeights)),           
         _GT(typeof(RenderTexture)),
+
+        // 测试Ngui
+        _GT(typeof(UIRoot)),
+        _GT(typeof(UISprite)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

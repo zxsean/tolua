@@ -100,9 +100,6 @@ namespace LuaInterface
                 mainState = this;
             }
 
-            // 修改加载方式,从这里加载才可以读取到资源下面的
-            new LuaResLoader();
-
             LuaException.Init();            
             L = LuaDLL.luaL_newstate();
             stateMap.Add(L, this);            
