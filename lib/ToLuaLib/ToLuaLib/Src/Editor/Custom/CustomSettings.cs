@@ -10,6 +10,9 @@ using System.Reflection;
 
 public static class CustomSettings
 {
+    /// <summary>
+    /// 生成Wrap文件
+    /// </summary>
     public static string saveDir = Application.dataPath + "/Source/Generate/";
     public static string luaDir = Application.dataPath + "/Lua/";
     public static string toluaBaseType = Application.dataPath + "/ToLua/BaseType/";
@@ -136,6 +139,9 @@ public static class CustomSettings
         // 测试Ngui
         _GT(typeof(UIRoot)),
         _GT(typeof(UISprite)),
+
+        // 测试生成GameDLL的Wrap
+        //_GT(typeof(TestCode)),
     };
 
     public static List<Type> dynamicList = new List<Type>()

@@ -12,6 +12,7 @@ public static class LuaBinder
 		DebuggerWrap.Register(L);
 		UIRootWrap.Register(L);
 		UISpriteWrap.Register(L);
+		TestCodeWrap.Register(L);
 		UIBasicSpriteWrap.Register(L);
 		UIWidgetWrap.Register(L);
 		UIRectWrap.Register(L);

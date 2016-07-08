@@ -97,12 +97,23 @@ public static class ToLuaMenu
     };
 
     private static bool beAutoGen = false;
-    private static bool beCheck = true;        
+
+    /// <summary>
+    /// 是否自动检测生成文件
+    /// </summary>
+    private static bool beCheck = false;
     static List<BindType> allTypes = new List<BindType>();
 
     static ToLuaMenu()
     {
         string dir = CustomSettings.saveDir;
+
+        if (!Directory.Exists(dir))
+        {
+            // 创建一个
+            Directory.CreateDirectory(dir);
+        }
+
         string[] files = Directory.GetFiles(dir, "*.cs", SearchOption.TopDirectoryOnly);
 
         if (files.Length < 3 && beCheck)
