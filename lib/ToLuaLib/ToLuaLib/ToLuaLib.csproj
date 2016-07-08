@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12586702-8B0A-4E8D-B680-BEE7D6A4BECB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ToLuaLib</RootNamespace>
+    <AssemblyName>ToLuaLib</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITY_EDITOR,UNITY_EDITOR_WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ForAndroid|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ForAndroid\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITY_ANDROID</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ForiOS|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ForiOS\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITY_IPHONE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Debugger">
+      <HintPath>plugin\Debugger.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GameDLL">
+      <HintPath>E:\anhei\dev\GameDLL\GameDLL\bin\Debug\GameDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="NGUI_LIB">
+      <HintPath>E:\anhei\dev\GameDLL\GameDLL\bin\Release\NGUI_LIB.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="UnityEditor">
+      <HintPath>plugin\UnityEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>plugin\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Editor\Custom\CustomSettings.cs" />
+    <Compile Include="Src\Source\Generate\DebuggerWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\DelegateFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\LuaBinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\TestCodeWrap.cs" />
+    <Compile Include="Src\Source\Generate\UIBasicSpriteWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UIRectWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UIRootWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UISpriteWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UIWidgetWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AnimationBlendModeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AnimationClipWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AnimationStateWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AnimationWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AnimatorWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ApplicationWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AssetBundleWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AsyncOperationWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AudioClipWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_AudioSourceWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_BehaviourWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_BlendWeightsWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_BoxColliderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_CameraClearFlagsWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_CameraWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_CapsuleColliderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_CharacterControllerWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ColliderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ComponentWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_GameObjectWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_InputWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_KeyCodeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_LightTypeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_LightWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_MaterialWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_MeshColliderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_MeshRendererWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_MonoBehaviourWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ParticleAnimatorWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ParticleEmitterWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ParticleRendererWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ParticleSystemWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_PhysicsWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_PlayModeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_QualitySettingsWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_QueueModeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_RendererWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_RenderSettingsWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_RenderTextureWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_RigidbodyWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ScreenWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_ShaderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_SkinnedMeshRendererWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_SleepTimeoutWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_SpaceWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_SphereColliderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_Texture2DWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_TextureWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_TimeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_TrackedReferenceWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_TransformWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_WrapModeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\Generate\UnityEngine_WWWWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Source\LuaConst.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\LuaInterface_EventObjectWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\LuaInterface_LuaConstructorWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\LuaInterface_LuaFieldWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\LuaInterface_LuaMethodWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\LuaInterface_LuaOutWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\LuaInterface_LuaPropertyWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_ArrayWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_Collections_IEnumeratorWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_DelegateWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_EnumWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_NullObjectWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_ObjectWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_StringWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\System_TypeWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\BaseType\UnityEngine_ObjectWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaAttributes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaBaseRef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaBeatEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaDLL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaFileUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaMisc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaStatic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaThread.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\LuaUnityLibs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\ObjectPool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\ObjectTranslator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\ToLua.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Core\TypeChecker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_LuaInterface_EventObject.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_LuaInterface_LuaConstructor.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_LuaInterface_LuaField.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_LuaInterface_LuaMethod.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_LuaInterface_LuaProperty.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_System_Delegate.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_System_Enum.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_System_Object.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_System_String.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_System_Type.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_UnityEngine_GameObject.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_UnityEngine_Input.cs" />
+    <Compile Include="Src\ToLua\Editor\Extend\ToLua_UnityEngine_Object.cs" />
+    <Compile Include="Src\ToLua\Editor\ToLuaExport.cs" />
+    <Compile Include="Src\ToLua\Editor\ToLuaMenu.cs" />
+    <Compile Include="Src\ToLua\Editor\ToLuaTree.cs" />
+    <Compile Include="Src\ToLua\Misc\LuaClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Misc\LuaCoroutine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Misc\LuaLooper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Misc\LuaResLoader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Reflection\LuaConstructor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Reflection\LuaField.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Reflection\LuaMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Reflection\LuaProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\ToLua\Reflection\LuaReflection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>del $(UnityProj)Assets\Plugins\$(TargetName).dll
+del $(UnityProj)Assets\Plugins\$(TargetName).pdb
+del $(UnityProj)Assets\Plugins\$(TargetName).dll.mdb
+del $(UnityProj)Assets\Plugins\$(TargetName).pdb.mdb
+copy $(TargetDir)$(TargetName).dll $(UnityProj)Assets\Plugins\$(TargetName).dll
+copy $(TargetDir)$(TargetName).pdb $(UnityProj)Assets\Plugins\$(TargetName).pdb
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
